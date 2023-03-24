@@ -2,16 +2,12 @@
 //
 
 #include "pch.h"
-#include "ñonnectFunc.h"
+#include "connectFunc.h"
 #include <StormLib.h>
 #include "common.hpp"
 #include "dbc.hpp"
 #include <iostream>
 #include <fstream>
-#include <string>
-
-#define SQL_INSERTS_PER_QUERY 300
-#define SLASH_BUFFER2000
 
 DBCFileLoader DBCSpell;
 DBCFileLoader DBCCreatureDusplayInfo;
@@ -154,7 +150,7 @@ bool ChangeSpellDBC(std::string path = "error") {
 
 }
 
-bool ChangeCreatureDisplayInfoDBC(std::string path = "da") {
+bool ChangeCreatureDisplayInfoDBC(std::string path = "error") {
 	//std::cout << "******************************ChangeCreatureDisplayInfoDBC********************************\n";
 		//std::cout << "CreatureDusplayInfo.dbc format:\n";
 	DBCCreatureDusplayInfo.Load("./CreatureDisplayInfo.dbc");
@@ -162,7 +158,7 @@ bool ChangeCreatureDisplayInfoDBC(std::string path = "da") {
 	return true;
 };
 
-bool ChangeItemDisplayInfoDBC(std::string path = "da") {
+bool ChangeItemDisplayInfoDBC(std::string path = "error") {
 	//std::cout << "*****************************ChangeItemDisplayInfoDBC********************************\n";
 	//std::cout << "ItemDisplayInfo.dbc format:\n";
 	DBCItemDisplayInfo.Load("./ItemDisplayInfo.dbc");

@@ -52,8 +52,7 @@ bool PatchCreate(Maap* pMaap, const char* a)
 }
 
 bool ParseJsons(Maap* pMaap) {
-	int len = sizeof(pMaap) / sizeof(float);
-	for (int i = 0; i < len; i++) {
+	for (int i = 0; i < pMaap[0].Count; i++) {
 		SpellChange[pMaap[i].Key] = pMaap[i].Value;
 	}
 	return true;

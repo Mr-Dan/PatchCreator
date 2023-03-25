@@ -12,6 +12,7 @@ struct Maap
 {
     int Key;
     int Value;
+    int Count;
 };
 
 extern "C" PATCHCREATOR_API bool PatchCreate(Maap * pMaap,const char* a);

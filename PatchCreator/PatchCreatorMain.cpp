@@ -91,6 +91,7 @@ bool ExtractMPQ(std::string path = "error") {
 		//std::cout << "SFileExtractFile SpellItemEnchantment.dbc" << std::endl;
 		SFileExtractFile(mpq, "DBFilesClient\\SpellItemEnchantment.dbc", ConverterToWChar("./SpellItemEnchantment.dbc"), SFILE_OPEN_FROM_MPQ);
 		//std::cout << SFileCloseArchive(mpq) << std::endl;
+		SFileCloseArchive(mpq);
 		return true;
 		//std::cout << "*****************************ExtractMPQ********************************\n";
 	}

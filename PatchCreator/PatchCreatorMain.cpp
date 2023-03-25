@@ -29,6 +29,7 @@ bool ParseJsons(Maap*);
 bool ExtractMPQ(std::string);
 
 bool MainFunction(Maap* pMaap, std::string a = "error") {
+
 	std::string path = a;
 	ParseJsons(pMaap);
 	ExtractMPQ(path);
@@ -39,13 +40,15 @@ bool MainFunction(Maap* pMaap, std::string a = "error") {
 	ChangeSpellItemEnchantmentDBC(path);
 
 	return CreateMPQ(path);
+
 }
 
 
-bool PatchCreate(Maap* pMaap, const char* a) 
+bool PatchCreate(Maap* pMaap, const char* a)
 {
 	std::string news = std::string(a);
 	return MainFunction(pMaap, news);
+
 }
 
 bool ParseJsons(Maap* pMaap) {
@@ -243,7 +246,8 @@ bool CreateMPQ(std::string path = "error") {
 	try {
 		HANDLE mpq;
 		remove((path + std::string("/Data/ruRU/patch-ruRU-x.mpq")).c_str());
-		SFileCreateArchive(ConverterToWChar((path + std::string("/Data/ruRU/patch-ruRU-x.mpq")).c_str()), MPQ_CREATE_ATTRIBUTES + MPQ_CREATE_ARCHIVE_V2, 0x000000010, &mpq);
+		bool isSucsess = SFileCreateArchive(ConverterToWChar((path + std::string("/Data/ruRU/patch-ruRU-x.mpq")).c_str()), MPQ_CREATE_ATTRIBUTES + MPQ_CREATE_ARCHIVE_V2, 0x000000010, &mpq);
+		if (!isSucsess) return false;
 		SFileAddFileEx(mpq, ConverterToWChar("./Spell.dbc"), "DBFilesClient\\Spell.dbc", MPQ_FILE_COMPRESS + MPQ_FILE_REPLACEEXISTING, MPQ_COMPRESSION_ZLIB, MPQ_COMPRESSION_NEXT_SAME);
 		remove("./Spell.dbc");
 		//std::cout << "added Spell.dbc" << std::endl;

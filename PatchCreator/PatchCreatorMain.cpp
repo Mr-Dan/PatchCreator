@@ -1,4 +1,4 @@
-// PatchCreatorDll.cpp : Определяет функции для статической библиотеки.
+// PatchCreatorDll.cpp : ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГґГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї Г±ГІГ ГІГЁГ·ГҐГ±ГЄГ®Г© ГЎГЁГЎГ«ГЁГ®ГІГҐГЄГЁ.
 //
 
 #include "pch.h"
@@ -43,7 +43,6 @@ bool MainFunction(Maap* pMaap, int count, std::string path) {
 	ChangeItemDisplayInfoDBC(path);
 	ChangeSpellItemEnchantmentDBC(path);
 	return CreateMPQ(path);
-	return true;
 }
 
 bool ParseJsons(Maap* pMaap, int count) {

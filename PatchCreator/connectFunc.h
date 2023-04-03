@@ -8,10 +8,19 @@
 #include <map>
 
 
-struct Maap
+struct SpellMap
 {
     int Key;
     int Value;
 };
 
-extern "C" PATCHCREATOR_API bool PatchCreate(Maap * pMaap, int count,const char* a);
+
+/*struct SpellMaps
+{
+    SpellMap* SpellDBC;
+   // int SpellDBCCount;
+    SpellMap* SpellVisualKitDBC;
+   // int SpellVisualKitDBCCount;
+};*/
+
+extern "C" PATCHCREATOR_API bool PatchCreate(SpellMap* SpellDBC, int SpellDBCCount, SpellMap* SpellVisualKitDBC, int SpellVisualKitDBCCount,const char* a);
